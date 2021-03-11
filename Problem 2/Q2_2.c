@@ -2,6 +2,37 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/types.h>
+
+void selfIdentify(FILE* outputFile){
+	fprintf(outputFile, "Hi I'm process %d and my parent is %d\n", getpid(), getppid());
+}
+
+void printFoundHiddenKey(FILE* outputFile, int hiddenKeyIndex){
+	fprintf(outputFile, "Hi I am process %d and I found the hidden key in position A[%d].\n", getpid(), hiddenKeyIndex);
+}
+
+void makeFork(pid_t* children, int numChildren, int maxChildren){
+    if (numChildren == maxChildren){
+        return;
+    } else {
+        pid_t temp = fork();
+        if (temp == 0){
+            // Child
+            numChildren = 0;
+            pid_t children [maxChildren];
+            for (int i = 0; i<maxChildren; i++){
+                children[i] = 0; 
+            }
+        } else {
+            // Parent
+            children[numChildren] = temp;
+            numChildren++;
+        }
+        
+    }
+}
+
 
 int main(int argc, char** argv) {
     FILE* outputFile = fopen("output.txt", "w");
@@ -9,12 +40,13 @@ int main(int argc, char** argv) {
         printf("ERROR: Could not open file %s\n", argv[1]); 
         return 0; 
     }
-    fprintf(outputFile, "Hi I'm process %d and my parent is %d\n", getpid(), getppid());
+
+	selfIdentify(outputFile);
 
     FILE* fp; 
     int count = atoi(argv[2]);
     int maxHiddenKeyCount = atoi(argv[3]);
-    //int maxProcessCount = atoi(argv[4]);
+    int maxProcessCount = atoi(argv[4]);
 
     fp = fopen(argv[1], "w+"); 
     if(fp == NULL) { 
@@ -31,7 +63,7 @@ int main(int argc, char** argv) {
         if(keyCount < maxHiddenKeyCount && i >= 500 && i % 75 == 0) {
             fprintf(fp, "%d\n", -10);
             ++keyCount;
-            continue;
+            continue; 
         }
         fprintf(fp, "%d\n", rand() % 100);
     }

@@ -20,7 +20,6 @@ void makeFork(pid_t* children, int numChildren, int maxChildren){
         if (temp == 0){
             // Child
             numChildren = 0;
-            pid_t children [maxChildren];
             for (int i = 0; i<maxChildren; i++){
                 children[i] = 0; 
             }
@@ -35,25 +34,44 @@ void makeFork(pid_t* children, int numChildren, int maxChildren){
 
 
 int main(int argc, char** argv) {
+    // Initiating:
+
+    // Constants (arguments)
+    int count = atoi(argv[2]);
+    int maxHiddenKeyCount = atoi(argv[3]);
+    int maxProcessCount = atoi(argv[4]);
+    int maxChildrenCount = 3;   // This is a randomly chosen X - can be changed here to an 
+                                // integer greater than 0 (including 1), and the code will work
+
+    // Files (input and output)
+    FILE* fp; 
     FILE* outputFile = fopen("output.txt", "w");
     if(outputFile == NULL) { 
         printf("ERROR: Could not open file %s\n", argv[1]); 
         return 0; 
     }
 
+    // Forking phase:
+
+    // Variables
+    int totalProcesses = 1;
+    int* totalProcessesPointer = &totalProcesses;
+    pid_t children []
+
+    while (*totalProcessesPointer < maxProcessCount){
+        makeFork()
+    }
+
 	selfIdentify(outputFile);
 
-    FILE* fp; 
-    int count = atoi(argv[2]);
-    int maxHiddenKeyCount = atoi(argv[3]);
-    int maxProcessCount = atoi(argv[4]);
-
+    
     fp = fopen(argv[1], "w+"); 
     if(fp == NULL) { 
         printf("ERROR: Could not open file %s\n", argv[1]); 
         return 0; 
     }
 
+    int maxNumber = 0;
     int keyCount = 0;
     for(int i = 1; i <= count; ++i) {
         if(i == count) {

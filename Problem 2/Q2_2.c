@@ -12,7 +12,7 @@ void printFoundHiddenKey(FILE* outputFile, int hiddenKeyIndex){
 	fprintf(outputFile, "Hi I am process %d and I found the hidden key in position A[%d].\n", getpid(), hiddenKeyIndex);
 }
 
-void makeFork(pid_t* children, int numChildren, int maxChildren){
+void ConsiderAndFork(pid_t* children, int numChildren, int maxChildren){
     if (numChildren == maxChildren){
         return;
     } else {
@@ -73,6 +73,13 @@ int main(int argc, char** argv) {
 
     int maxNumber = 0;
     int keyCount = 0;
+//My addition
+    while(maxProcessCount>maxHiddenkeyCount){
+        ConsiderAndFork();
+        keyCount++;
+    }
+
+// 
     for(int i = 1; i <= count; ++i) {
         if(i == count) {
             fprintf(fp, "%d", rand() % 100);

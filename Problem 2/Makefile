@@ -1,15 +1,12 @@
-INPUT=maxAvgHiddenKey
 OUTPUT=maxAvgHiddenKey
 CFLAGS=-g -Wall
 LFLAGS=-lm
-
-%: %.c %.h
-	gcc $(CFLAGS) -o $@ $< $(LFLAGS)
-
-%: %.c
-	gcc $(CFLAGS) -o $(OUTPUT) $< $(LFLAGS)
-
-all: $(INPUT)
-
+	
+Q2_1: Q2_1.c
+	gcc $(CFLAGS) -o $(OUTPUT) $< $(LFLAGS) 
+	
+Q2_2: Q2_2.c
+	gcc $(CFLAGS) -o $(OUTPUT) $< $(LFLAGS) 
+	
 clean:
 	rm -f *.o $(OUTPUT)

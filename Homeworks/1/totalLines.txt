@@ -1,0 +1,6 @@
+File 1: h.txt (16 lines)
+Total Lines in 1 files: 16
+File 2: l.txt (5 lines)
+Total Lines in 2 files: 21
+File 3: m.txt (3 lines)
+Total Lines in 3 files: 24

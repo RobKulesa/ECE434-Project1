@@ -131,14 +131,18 @@ int main(int argc, char** argv) {
         for(int j = 0; j < num_threads_per_group; j++) {
             int start = i*group_chunk_length + j*thread_chunk_length;
             int length = thread_chunk_length;
-            subarray *threadarr = (subarray*) calloc(1, sizeof(subarray*));
+            int threadarrlength;
+            subarray *threadarr = (subarray*) calloc(1, sizeof(subarray));
             threadarrs[i][j]=threadarr;
-            threadarr->arr = (int*) &numArray[start];
+
             if(j == num_threads_per_group - 1) {
-                threadarr->length = length + thread_remainder;
+                threadarrlength = length + thread_remainder;
             } else {
-                threadarr->length = length;
+                threadarrlength = length;
             }
+
+            threadarr->arr = (int*) &numArray[start];
+            threadarr->length = threadarrlength;
 
             pthread_create(&groups[i][j], NULL, sortsubarray, threadarr);
             //pthread_join(groups[i][j], NULL);

@@ -1,0 +1,89 @@
+Length of Integer List: 1,000
+    Groups: 5
+        Threads Per Group: 4
+            Results:
+                Group 1 took 0.103 ms!
+                Group 2 took 0.089 ms!
+                Group 3 took 0.062 ms!
+                Group 4 took 0.046 ms!
+                Group 5 took 0.032 ms!
+        Threads Per Group: 100
+            Results:
+                Group 1 took 1.809 ms!
+                Group 2 took 1.515 ms!
+                Group 3 took 1.158 ms!
+                Group 4 took 0.797 ms!
+                Group 5 took 0.501 ms!
+        Threads Per Group: 1,000
+            Note: Not enough numbers to be assigned to each individual thread (5,000 threads for 1,000 numbers)
+Length of Integer List: 10,000
+    Groups: 5
+        Threads Per Group: 4
+            Results:
+                Group 1 took 0.253 ms!
+                Group 2 took 0.318 ms!
+                Group 3 took 0.330 ms!
+                Group 4 took 0.378 ms!
+                Group 5 took 0.334 ms!
+        Threads Per Group: 100
+            Results:
+                Group 1 took 1.635 ms!
+                Group 2 took 1.324 ms!
+                Group 3 took 1.066 ms!
+                Group 4 took 0.802 ms!
+                Group 5 took 0.529 ms!
+        Threads Per Group: 1,000
+                Group 1 took 12.749 ms!
+                Group 2 took 10.246 ms!
+                Group 3 took 8.152 ms!
+                Group 4 took 6.047 ms!
+                Group 5 took 3.934 ms!
+Length of Integer List: 100,000
+    Groups: 5
+        Threads Per Group: 4
+            Results:
+                Group 1 took 4.317 ms!
+                Group 2 took 4.310 ms!
+                Group 3 took 4.579 ms!
+                Group 4 took 4.860 ms!
+                Group 5 took 5.147 ms!
+        Threads Per Group: 100
+            Results:
+                Group 1 took 4.358 ms!
+                Group 2 took 3.799 ms!
+                Group 3 took 3.271 ms!
+                Group 4 took 2.328 ms!
+                Group 5 took 1.818 ms!
+        Threads Per Group: 1,000
+                Group 1 took 13.498 ms!
+                Group 2 took 11.778 ms!
+                Group 3 took 9.613 ms!
+                Group 4 took 7.142 ms!
+                Group 5 took 4.796 ms!
+Length of Integer List: 1,000,000
+    Groups: 5
+        Threads Per Group: 4
+            Results:
+                Group 1 took 32.408 ms!
+                Group 2 took 32.400 ms!
+                Group 3 took 33.659 ms!
+                Group 4 took 33.980 ms!
+                Group 5 took 33.926 ms!
+        Threads Per Group: 100
+            Results:
+                Group 1 took 29.910 ms!
+                Group 2 took 28.156 ms!
+                Group 3 took 28.012 ms!
+                Group 4 took 25.973 ms!
+                Group 5 took 24.874 ms!
+        Threads Per Group: 1,000
+                Group 1 took 33.304 ms!
+                Group 2 took 29.412 ms!
+                Group 3 took 24.949 ms!
+                Group 4 took 18.592 ms!
+                Group 5 took 13.408 ms!
+
+Remarks:
+Multithreading seems to have an interesting effect with mergesort. When groups had a smaller number of threads, the spread of execution time 
+among groups is more consistent. But with a larger number of threads for each group, the execution time decreased with each groups sort, 
+especially for longer lists. For medium lists though, a medium number of threads per group seems to be the sweet spot for execution time. 

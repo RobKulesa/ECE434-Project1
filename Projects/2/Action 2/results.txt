@@ -1,89 +1,84 @@
 Length of Integer List: 1,000
-    Groups: 5
+    Groups: 4
         Threads Per Group: 4
             Results:
-                Group 1 took 0.103 ms!
-                Group 2 took 0.089 ms!
-                Group 3 took 0.062 ms!
-                Group 4 took 0.046 ms!
-                Group 5 took 0.032 ms!
+                Group 1 took 0.583 ms!
+                Group 2 took 0.576 ms!
+                Group 3 took 0.574 ms!
+                Group 4 took 0.572 ms!
         Threads Per Group: 100
             Results:
-                Group 1 took 1.809 ms!
-                Group 2 took 1.515 ms!
-                Group 3 took 1.158 ms!
-                Group 4 took 0.797 ms!
-                Group 5 took 0.501 ms!
+                Group 1 took 3.905 ms!
+                Group 2 took 3.901 ms!
+                Group 3 took 3.899 ms!
+                Group 4 took 3.893 ms!
         Threads Per Group: 1,000
-            Note: Not enough numbers to be assigned to each individual thread (5,000 threads for 1,000 numbers)
+            Note: Not enough numbers to be assigned to each individual thread (4,000 threads for 1,000 numbers)
+            Results:
+                Group 1 took 23.739 ms!
+                Group 2 took 23.735 ms!
+                Group 3 took 23.733 ms!
+                Group 4 took 23.730 ms!
 Length of Integer List: 10,000
-    Groups: 5
+    Groups: 4
         Threads Per Group: 4
             Results:
-                Group 1 took 0.253 ms!
-                Group 2 took 0.318 ms!
-                Group 3 took 0.330 ms!
-                Group 4 took 0.378 ms!
-                Group 5 took 0.334 ms!
+                Group 1 took 1.044 ms!
+                Group 2 took 1.040 ms!
+                Group 3 took 1.037 ms!
+                Group 4 took 1.033 ms!
         Threads Per Group: 100
             Results:
-                Group 1 took 1.635 ms!
-                Group 2 took 1.324 ms!
-                Group 3 took 1.066 ms!
-                Group 4 took 0.802 ms!
-                Group 5 took 0.529 ms!
+                Group 1 took 3.871 ms!
+                Group 2 took 3.866 ms!
+                Group 3 took 3.864 ms!
+                Group 4 took 3.860 ms!
         Threads Per Group: 1,000
-                Group 1 took 12.749 ms!
-                Group 2 took 10.246 ms!
-                Group 3 took 8.152 ms!
-                Group 4 took 6.047 ms!
-                Group 5 took 3.934 ms!
+                Group 1 took 28.239 ms!
+                Group 2 took 28.232 ms!
+                Group 3 took 28.227 ms!
+                Group 4 took 28.221 ms!
 Length of Integer List: 100,000
-    Groups: 5
+    Groups: 4
         Threads Per Group: 4
             Results:
-                Group 1 took 4.317 ms!
-                Group 2 took 4.310 ms!
-                Group 3 took 4.579 ms!
-                Group 4 took 4.860 ms!
-                Group 5 took 5.147 ms!
+                Group 1 took 6.611 ms!
+                Group 2 took 6.606 ms!
+                Group 3 took 6.598 ms!
+                Group 4 took 6.595 ms!
         Threads Per Group: 100
             Results:
-                Group 1 took 4.358 ms!
-                Group 2 took 3.799 ms!
-                Group 3 took 3.271 ms!
-                Group 4 took 2.328 ms!
-                Group 5 took 1.818 ms!
+                Group 1 took 10.398 ms!
+                Group 2 took 10.394 ms!
+                Group 3 took 10.388 ms!
+                Group 4 took 10.384 ms!
         Threads Per Group: 1,000
-                Group 1 took 13.498 ms!
-                Group 2 took 11.778 ms!
-                Group 3 took 9.613 ms!
-                Group 4 took 7.142 ms!
-                Group 5 took 4.796 ms!
+                Group 1 took 48.090 ms!
+                Group 2 took 48.084 ms!
+                Group 3 took 48.076 ms!
+                Group 4 took 48.072 ms!
 Length of Integer List: 1,000,000
-    Groups: 5
+    Groups: 4
         Threads Per Group: 4
             Results:
-                Group 1 took 32.408 ms!
-                Group 2 took 32.400 ms!
-                Group 3 took 33.659 ms!
-                Group 4 took 33.980 ms!
-                Group 5 took 33.926 ms!
+                Group 1 took 57.828 ms!
+                Group 2 took 57.824 ms!
+                Group 3 took 57.819 ms!
+                Group 4 took 57.814 ms!
         Threads Per Group: 100
             Results:
-                Group 1 took 29.910 ms!
-                Group 2 took 28.156 ms!
-                Group 3 took 28.012 ms!
-                Group 4 took 25.973 ms!
-                Group 5 took 24.874 ms!
+                Group 1 took 54.859 ms!
+                Group 2 took 54.854 ms!
+                Group 3 took 54.851 ms!
+                Group 4 took 54.844 ms!
         Threads Per Group: 1,000
-                Group 1 took 33.304 ms!
-                Group 2 took 29.412 ms!
-                Group 3 took 24.949 ms!
-                Group 4 took 18.592 ms!
-                Group 5 took 13.408 ms!
+                Group 1 took 100.502 ms!
+                Group 2 took 100.497 ms!
+                Group 3 took 100.492 ms!
+                Group 4 took 100.489 ms!
 
-Remarks:
-Multithreading seems to have an interesting effect with mergesort. When groups had a smaller number of threads, the spread of execution time 
-among groups is more consistent. But with a larger number of threads for each group, the execution time decreased with each groups sort, 
-especially for longer lists. For medium lists though, a medium number of threads per group seems to be the sweet spot for execution time. 
+Report:
+The design of action 2 is as such: the random integer array is created, and 4 teams of threads (threads per team specified by user)
+split off and sort their own section of their team's section of the array. Once the sorting thread finishes sorting their array, they write
+the sorted array to their groups file, and finish. Then, each team's representative thread sorts all the integers in the team's file, and the time for each
+team to sort is calculated and printed. Interestingly, in almost all cases, fewer threads per team decreased the sorting time for each group. 

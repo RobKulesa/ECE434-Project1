@@ -1,40 +1,111 @@
 1)
 SIGINT: 
-Output- Thread 4509453760 received signum: 2
-If sigint is recieved, as it is a part of threadfunc_sigaction,
+Output- "Thread 4509453760 received signum: 2"
+If SIGINT is recieved, as it is a part of threadfunc_sigaction,
 sig_handler runs to deal with the signal. sig_handler will just print
 the thread number and the signum of the recieved signal
-(in this format: "Thread ____ received signum: ____"). sig_handler locks the mutex while this is happening.
+(in this format: "Thread ____ received signum: ____"). sig_handler locks the mutex 
+while this is happening.
 
 SIGABRT:
+Output- "Thread 4562181568 received signum: 6"
+If SIGABRT is recieved, as it is a part of threadfunc_sigaction,
+sig_handler runs to deal with the signal. sig_handler will just print
+the thread number and the signum of the recieved signal
+(in this format: "Thread ____ received signum: ____"). sig_handler locks the mutex 
+while this is happening.
 
 SIGILL:
+Output- None
+If SIGILL is recieved, as it is a part of ignore_sigaction,
+sig_handler does not run to deal with the signal. Instead, the sigaction runs the SIG_IGN 
+macro, which tells the code to ignore this signal. 
 
 SIGCHLD: 
+Output- None
+If SIGCHLD is recieved, as it is a part of ignore_sigaction,
+sig_handler does not run to deal with the signal. Instead, the sigaction runs the SIG_IGN 
+macro, which tells the code to ignore this signal. 
 
 SIGSEGV:
+Output- None
+If SIGSEGV is recieved, as it is a part of ignore_sigaction,
+sig_handler does not run to deal with the signal. Instead, the sigaction runs the SIG_IGN 
+macro, which tells the code to ignore this signal. 
 
 SIGFPE:
+Output- "Thread 4562181568 received signum: 8"
+If SIGFPE is recieved, as it is a part of threadfunc_sigaction,
+sig_handler runs to deal with the signal. sig_handler will just print
+the thread number and the signum of the recieved signal
+(in this format: "Thread ____ received signum: ____"). sig_handler locks the mutex 
+while this is happening.
 
 SIGHUP: 
-
-SIGTST:
 Output- None
+If SIGHUP is recieved, as it is a part of ignore_sigaction,
+sig_handler does not run to deal with the signal. Instead, the sigaction runs the SIG_IGN 
+macro, which tells the code to ignore this signal. 
+
+SIGTSTP:
+Output- None
+If SIGTSTP is recieved, as it is a part of ignore_sigaction,
+sig_handler does not run to deal with the signal. Instead, the sigaction runs the SIG_IGN 
+macro, which tells the code to ignore this signal. 
 
 
 2)
 SIGINT: 
+Output-"Thread 123145475731456 received signum: 2"
+If this signal is recieved, as it is a part of threadfunc_sigaction,
+sig_handler runs to deal with the signal. sig_handler will just print
+the thread number and the signum of the recieved signal
+(in this format: "Thread ____ received signum: ____"). sig_handler locks the mutex 
+while this is happening.
 
 SIGABRT:
+Output-"Thread 123145476268032 received signum: 6"
+If this signal is recieved, as it is a part of threadfunc_sigaction,
+sig_handler runs to deal with the signal. sig_handler will just print
+the thread number and the signum of the recieved signal
+(in this format: "Thread ____ received signum: ____"). sig_handler locks the mutex 
+while this is happening.
 
 SIGILL:
+Output-None
+If this signal is recieved, as it is a part of ignore_sigaction,
+sig_handler does not run to deal with the signal. Instead, the sigaction runs the SIG_IGN 
+macro, which tells the code to ignore this signal. 
 
 SIGCHLD: 
+Output-None
+If this signal is recieved, as it is a part of ignore_sigaction,
+sig_handler does not run to deal with the signal. Instead, the sigaction runs the SIG_IGN 
+macro, which tells the code to ignore this signal. 
 
 SIGSEGV:
+Output-None
+If this signal is recieved, as it is a part of ignore_sigaction,
+sig_handler does not run to deal with the signal. Instead, the sigaction runs the SIG_IGN 
+macro, which tells the code to ignore this signal. 
 
 SIGFPE:
+Output-"Thread 123145478414336 received signum: 8"
+If this signal is recieved, as it is a part of threadfunc_sigaction,
+sig_handler runs to deal with the signal. sig_handler will just print
+the thread number and the signum of the recieved signal
+(in this format: "Thread ____ received signum: ____"). sig_handler locks the mutex 
+while this is happening.
 
 SIGHUP: 
+Output-None
+If this signal is recieved, as it is a part of ignore_sigaction,
+sig_handler does not run to deal with the signal. Instead, the sigaction runs the SIG_IGN 
+macro, which tells the code to ignore this signal. 
 
 SIGTST:
+Output-None
+If this signal is recieved, as it is a part of ignore_sigaction,
+sig_handler does not run to deal with the signal. Instead, the sigaction runs the SIG_IGN 
+macro, which tells the code to ignore this signal. 
+

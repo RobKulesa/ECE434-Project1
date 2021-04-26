@@ -74,11 +74,11 @@ int main(int argc, char** argv) {
     sigaction(SIGHUP, main_sigaction, old_hup);
     sigaction(SIGTSTP, main_sigaction, old_tstp);
 
-    int num_groups = 4;
+    int num_groups = 9;
 
     pthread_t groups[num_groups];
     
- 
+    printf("%ld is our pid\n", getpid());
 
 
     for(int i = 0; i < num_groups; ++i) {
@@ -86,6 +86,10 @@ int main(int argc, char** argv) {
         sleep(1);
     }
 
+    int Arr[8] = {SIGINT, SIGABRT, SIGILL,SIGCHLD,SIGSEGV,SIGFPE,SIGHUP,SIGTSTP};
+    for(int i = 0; i < 8; ++i) { 
+        pthread_kill(groups[i], Arr[i]);
+    }
     //ACTION 4 Q2: call pthread_kill before this point
 
     for(int i = 0; i < num_groups; ++i) { 

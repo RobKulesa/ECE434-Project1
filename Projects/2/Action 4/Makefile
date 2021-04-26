@@ -1,5 +1,5 @@
 INPUT=action4
-OUTPUT=action4
+OUTPUT=action4.out
 CFLAGS=-g -Wall 
 LFLAGS=-lm -lpthread
 

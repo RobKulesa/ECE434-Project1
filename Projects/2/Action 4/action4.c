@@ -74,11 +74,13 @@ int main(int argc, char** argv) {
     sigaction(SIGHUP, main_sigaction, old_hup);
     sigaction(SIGTSTP, main_sigaction, old_tstp);
 
-
     int num_groups = 4;
 
     pthread_t groups[num_groups];
     
+ 
+
+
     for(int i = 0; i < num_groups; ++i) {
         pthread_create(&groups[i], NULL, threadFunc, NULL);
         sleep(1);

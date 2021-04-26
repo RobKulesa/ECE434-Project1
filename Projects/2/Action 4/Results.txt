@@ -1,2 +1,40 @@
-Results: 4 threads are spawned and register custom signal handlers for SIGINT, SIGABRT, and SIGFPE. The other listed signals in the assignment are ignored,
-and the threads run an infinite loop and wait to receive the three signals. 
+1)
+SIGINT: 
+Output- Thread 4509453760 received signum: 2
+If sigint is recieved, as it is a part of threadfunc_sigaction,
+sig_handler runs to deal with the signal. sig_handler will just print
+the thread number and the signum of the recieved signal
+(in this format: "Thread ____ received signum: ____"). sig_handler locks the mutex while this is happening.
+
+SIGABRT:
+
+SIGILL:
+
+SIGCHLD: 
+
+SIGSEGV:
+
+SIGFPE:
+
+SIGHUP: 
+
+SIGTST:
+Output- None
+
+
+2)
+SIGINT: 
+
+SIGABRT:
+
+SIGILL:
+
+SIGCHLD: 
+
+SIGSEGV:
+
+SIGFPE:
+
+SIGHUP: 
+
+SIGTST:

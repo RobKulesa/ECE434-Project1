@@ -1,0 +1,2 @@
+Results: 4 threads are spawned and register custom signal handlers for SIGINT, SIGABRT, and SIGFPE. The other listed signals in the assignment are ignored,
+and the threads run an infinite loop and wait to receive the three signals. 
